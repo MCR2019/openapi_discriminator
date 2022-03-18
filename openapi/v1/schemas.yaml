@@ -1,0 +1,31 @@
+openapi: "3.0.3"
+
+components:
+  schemas:
+
+    Animal:
+      type: object
+      discriminator:
+        propertyName: legs
+        mapping:
+          two: Chicken
+          four: Dog
+      oneOf:
+        - $ref: '#/components/schemas/Dog'
+        - $ref: '#/components/schemas/Chicken'
+
+    Chicken:
+      type: object
+      required:
+        - legs
+      properties:
+        legs:
+          type: string
+
+    Dog:
+      type: object
+      required:
+        - legs
+      properties:
+        legs:
+          type: string

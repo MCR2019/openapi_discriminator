@@ -1,0 +1,23 @@
+openapi: "3.0.3"
+info:
+  title: Open API Discriminator Example
+  version: "v1"
+
+tags:
+  - name: discriminator
+
+paths:
+  /discriminatortest:
+    get:
+      tags:
+        - discriminator
+      summary: Example using discriminator
+      description: "Demonstrate a minimal example"
+      responses:
+        "200":
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: "schemas.yaml#/components/schemas/Animal"}
+              example:
+                legs: "two"
